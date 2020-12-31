@@ -6,13 +6,13 @@ function generateArray(count){
 }
 
 suite.add('shift', function () {
-  let count = 10
+  let count = 100
   const arr = generateArray(count)
   while (count--) {
     arr.shift()
   }
 }).add('reverse + pop', function () {
-  let count = 10
+  let count = 100
   const arr = generateArray(count)
   arr.reverse()
   while (count--) {

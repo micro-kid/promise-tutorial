@@ -2,8 +2,8 @@
  * 高性能队列
  */
 class HighPerformanceQueue {
-  constructor(size = 0) {
-    this.q1 = new Array(size);
+  constructor() {
+    this.q1 = [];
     this.q2 = [];
   }
 

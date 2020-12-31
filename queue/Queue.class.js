@@ -2,8 +2,8 @@
  * 队列
  */
 class Queue {
-  constructor(size = 0) {
-    this._queue = new Array(size)
+  constructor() {
+    this._queue = []
   }
 
   push(value) {
@@ -13,7 +13,7 @@ class Queue {
   shift() {
     return this._queue.shift()
   }
-
+  
   isEmpty() {
     return this._queue.length === 0
   }

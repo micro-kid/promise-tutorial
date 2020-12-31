@@ -4,15 +4,23 @@ const HighPerformanceQueue = require('./HighPerformanceQueue.class')
 const Benchmark = require('benchmark')
 const suite = new Benchmark.Suite
 
+function generateQueue(queueFn, count) {
+  let queue = new queueFn()
+  for (let index = 0; index < count; index++) {
+    queue.push(index)
+  }
+  return queue
+}
+
 suite.add('Queue', function () {
-  let count = 10
-  const arr = new Queue(count)
+  let count = 100
+  const arr = generateQueue(Queue, count)
   while (count--) {
     arr.shift()
   }
 }).add('HighPerformanceQueue', function () {
-  let count = 10
-  const arr = new HighPerformanceQueue(count)
+  let count = 100
+  const arr = generateQueue(HighPerformanceQueue, count)
   while (count--) {
     arr.shift()
   }
