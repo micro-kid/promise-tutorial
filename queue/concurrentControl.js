@@ -1,4 +1,4 @@
-const TaskPool = require('./Queue.class')
+const TaskPool = require('./TaskPool.class')
 
 const task = timeout => new Promise((resolve) => setTimeout(() => {
   resolve(timeout)
@@ -8,7 +8,7 @@ const taskList = [1000, 3000, 200, 1300, 800, 2000]
 
 const CONCURRENT_CONTROL_LOG = 'CONCURRENT_CONTROL_TIME'
 
-const cc = new TaskPool(2)
+const cc = new TaskPool(2, true)
 
 async function startConcurrentControl() {
   console.time(CONCURRENT_CONTROL_LOG)

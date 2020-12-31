@@ -1,22 +1,20 @@
+const Queue = require('./Queue.class')
+const HighPerformanceQueue = require('./HighPerformanceQueue.class')
+
 const Benchmark = require('benchmark')
 const suite = new Benchmark.Suite
 
-function generateArray(count){
-  return [...Array(count).keys()]
-}
-
-suite.add('shift', function () {
+suite.add('Queue', function () {
   let count = 10
-  const arr = generateArray(count)
+  const arr = new Queue(count)
   while (count--) {
     arr.shift()
   }
-}).add('reverse + pop', function () {
+}).add('HighPerformanceQueue', function () {
   let count = 10
-  const arr = generateArray(count)
-  arr.reverse()
+  const arr = new HighPerformanceQueue(count)
   while (count--) {
-    arr.pop()
+    arr.shift()
   }
 }).on('cycle', function (event) {
   console.log(String(event.target))
